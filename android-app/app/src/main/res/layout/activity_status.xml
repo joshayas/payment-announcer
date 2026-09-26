@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="28dp"
+    android:background="@color/bg">
+
+    <TextView android:id="@+id/statusIcon" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="48sp" android:layout_marginBottom="16dp" />
+
+    <TextView android:id="@+id/statusHeadline" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textColor="@color/text" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="6dp" />
+
+    <TextView android:id="@+id/statusSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textColor="@color/text_dim" android:textSize="14sp" android:gravity="center" android:layout_marginBottom="28dp" />
+
+    <Button android:id="@+id/refreshButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Check again" android:backgroundTint="@color/panel" android:textColor="@color/text" android:layout_marginBottom="12dp" />
+
+    <Button android:id="@+id/enterAppButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Open payment screen" android:backgroundTint="@color/mint" android:textColor="@color/bg" android:visibility="gone" />
+
+    <Button android:id="@+id/resubmitButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Resubmit screenshot" android:backgroundTint="@color/gold" android:textColor="@color/bg" android:visibility="gone" />
+
+</LinearLayout>

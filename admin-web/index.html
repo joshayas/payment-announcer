@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Announcer — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Login screen -->
+  <div class="login-wrap" id="loginScreen">
+    <div class="login-card">
+      <div class="brand">
+        <div class="brand-mark">ብር</div>
+        <div class="brand-text">
+          <strong>Payment Announcer</strong>
+          <span>Admin console</span>
+        </div>
+      </div>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+        <button type="submit" class="btn btn-primary">Log in</button>
+        <p class="error" id="loginError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard" id="dashboard" style="display:none;">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">ብር</div>
+        <div class="brand-text"><strong>Payment Announcer</strong><span>Admin console</span></div>
+      </div>
+      <button class="btn btn-outline btn-small" id="logoutBtn">Log out</button>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-status="pending_approval">Pending</button>
+      <button class="tab" data-status="approved">Approved</button>
+      <button class="tab" data-status="rejected">Rejected</button>
+      <button class="tab" data-status="">All drivers</button>
+    </div>
+
+    <div class="content">
+      <div id="driverList"></div>
+    </div>
+  </div>
+
+  <!-- Reject reason modal -->
+  <div class="modal-backdrop" id="rejectModal" style="display:none;">
+    <div class="modal">
+      <h3>Reject this driver?</h3>
+      <p class="desc">Add a short note explaining why, so they know what to fix before resubmitting.</p>
+      <textarea id="rejectNote" placeholder="e.g. Amount doesn't match, screenshot is blurry..."></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-outline" id="cancelRejectBtn">Cancel</button>
+        <button class="btn btn-danger" id="confirmRejectBtn">Reject driver</button>
+      </div>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Payment Announcer</string>
+    <string name="waiting_for_payment">Waiting for payment</string>
+    <string name="payment_received">Payment received</string>
+</resources>

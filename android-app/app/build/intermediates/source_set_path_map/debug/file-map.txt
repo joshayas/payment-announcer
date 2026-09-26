@@ -1,0 +1,39 @@
+com.paymentannouncer.app-drawerlayout-1.1.1-0 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\095087988d036c761dd451c50cb639e2\transformed\drawerlayout-1.1.1\res
+com.paymentannouncer.app-coordinatorlayout-1.1.0-1 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\12c514b7561a686b599b2870af698de7\transformed\coordinatorlayout-1.1.0\res
+com.paymentannouncer.app-lifecycle-viewmodel-savedstate-2.7.0-2 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\1d6e63410a679107c1003deaa284344c\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.paymentannouncer.app-appcompat-1.6.1-3 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\29396e7b4789cae166bee97459d16316\transformed\appcompat-1.6.1\res
+com.paymentannouncer.app-emoji2-views-helper-1.2.0-4 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3738ab5920bc5b822511a7c0aa88455b\transformed\emoji2-views-helper-1.2.0\res
+com.paymentannouncer.app-fragment-1.3.6-5 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\380ee83b1be335953606eabceff489a5\transformed\fragment-1.3.6\res
+com.paymentannouncer.app-savedstate-ktx-1.2.1-6 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\380f7a540e5e8183fd1f311d6e3ad233\transformed\savedstate-ktx-1.2.1\res
+com.paymentannouncer.app-lifecycle-livedata-core-ktx-2.7.0-7 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\39c1d5cabc8e6edee0f272bba40400f8\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.paymentannouncer.app-lifecycle-livedata-core-2.7.0-8 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab23baace7516ea47968a465fbfd4b7\transformed\lifecycle-livedata-core-2.7.0\res
+com.paymentannouncer.app-profileinstaller-1.3.0-9 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\res
+com.paymentannouncer.app-emoji2-1.2.0-10 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\res
+com.paymentannouncer.app-lifecycle-runtime-ktx-2.7.0-11 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\53c5dc6ff443d1dfbe6d387a18931dad\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.paymentannouncer.app-lifecycle-process-2.7.0-12 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\5e2382d5019c4349d241a9ce807d275d\transformed\lifecycle-process-2.7.0\res
+com.paymentannouncer.app-core-1.12.0-13 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\res
+com.paymentannouncer.app-startup-runtime-1.1.1-14 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7802bed734dc48da7dad57f49e201353\transformed\startup-runtime-1.1.1\res
+com.paymentannouncer.app-lifecycle-viewmodel-2.7.0-15 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7f3bfd97fc1269c21433e581dfce16ad\transformed\lifecycle-viewmodel-2.7.0\res
+com.paymentannouncer.app-material-1.11.0-16 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\82f3e6343ccdbfc37187d7764f53478a\transformed\material-1.11.0\res
+com.paymentannouncer.app-lifecycle-runtime-2.7.0-17 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\8f1e869ea8d2b9a85e279e75f69f829d\transformed\lifecycle-runtime-2.7.0\res
+com.paymentannouncer.app-cardview-1.0.0-18 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\97793ba6c229571515b73a10120c2fca\transformed\cardview-1.0.0\res
+com.paymentannouncer.app-savedstate-1.2.1-19 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\9b348cbbacb3a42bc6d664ffc33c0a1b\transformed\savedstate-1.2.1\res
+com.paymentannouncer.app-constraintlayout-2.1.4-20 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\9cd0c756d309824f3226055682eb65ad\transformed\constraintlayout-2.1.4\res
+com.paymentannouncer.app-viewpager2-1.0.0-21 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\a1e3a007fd6b7d098e934257766e3a9c\transformed\viewpager2-1.0.0\res
+com.paymentannouncer.app-activity-ktx-1.8.2-22 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\a5d4451a975b5973ca96aa8c7ed0eb78\transformed\activity-ktx-1.8.2\res
+com.paymentannouncer.app-transition-1.2.0-23 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\acebae80dd424f6bcfe5185911485f00\transformed\transition-1.2.0\res
+com.paymentannouncer.app-appcompat-resources-1.6.1-24 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\b87edacb3756d7df208fa6561ddcb060\transformed\appcompat-resources-1.6.1\res
+com.paymentannouncer.app-core-runtime-2.2.0-25 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\beafc377473a989394cc96dec27de740\transformed\core-runtime-2.2.0\res
+com.paymentannouncer.app-annotation-experimental-1.3.0-26 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\c8ed73dbb0e7074e4ba4e305c4c0d897\transformed\annotation-experimental-1.3.0\res
+com.paymentannouncer.app-lifecycle-livedata-2.7.0-27 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\dac2eece20408a52700886969a502a4f\transformed\lifecycle-livedata-2.7.0\res
+com.paymentannouncer.app-activity-1.8.2-28 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\df1599598d2bf5978f9e95af10819da9\transformed\activity-1.8.2\res
+com.paymentannouncer.app-core-ktx-1.12.0-29 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\e71a1c745e7e1ded06537a14b2092ba7\transformed\core-ktx-1.12.0\res
+com.paymentannouncer.app-recyclerview-1.1.0-30 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\ec3ed6dc9abfbac64f02cf6753eb8c5b\transformed\recyclerview-1.1.0\res
+com.paymentannouncer.app-lifecycle-viewmodel-ktx-2.7.0-31 C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\f31cdb57e16847efc6f1d477987141c0\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.paymentannouncer.app-pngs-32 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\build\generated\res\pngs\debug
+com.paymentannouncer.app-resValues-33 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\build\generated\res\resValues\debug
+com.paymentannouncer.app-packageDebugResources-34 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.paymentannouncer.app-packageDebugResources-35 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.paymentannouncer.app-merged_res-36 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\build\intermediates\merged_res\debug
+com.paymentannouncer.app-debug-37 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\debug\res
+com.paymentannouncer.app-main-38 C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\res

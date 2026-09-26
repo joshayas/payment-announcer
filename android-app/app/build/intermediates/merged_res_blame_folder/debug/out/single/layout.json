@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.paymentannouncer.app-mergeDebugResources-35:/layout/activity_register.xml",
+        "source": "com.paymentannouncer.app-main-38:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.paymentannouncer.app-mergeDebugResources-35:/layout/activity_login.xml",
+        "source": "com.paymentannouncer.app-main-38:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.paymentannouncer.app-mergeDebugResources-35:/layout/activity_status.xml",
+        "source": "com.paymentannouncer.app-main-38:/layout/activity_status.xml"
+    },
+    {
+        "merged": "com.paymentannouncer.app-mergeDebugResources-35:/layout/activity_deposit.xml",
+        "source": "com.paymentannouncer.app-main-38:/layout/activity_deposit.xml"
+    },
+    {
+        "merged": "com.paymentannouncer.app-mergeDebugResources-35:/layout/activity_payment.xml",
+        "source": "com.paymentannouncer.app-main-38:/layout/activity_payment.xml"
+    }
+]

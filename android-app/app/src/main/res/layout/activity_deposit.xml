@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Pay the verification deposit"
+        android:textColor="@color/text" android:textSize="20sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Refundable if you stop using the app. Send to either account, then upload the screenshot."
+        android:textColor="@color/text_dim" android:textSize="13sp" android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/panel"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView android:id="@+id/depositAmount" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="ETB 500" android:textColor="@color/gold" android:textSize="24sp" android:textStyle="bold" android:layout_marginBottom="10dp" />
+
+        <TextView android:id="@+id/cbeAccountRow" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/text" android:textSize="14sp" android:layout_marginBottom="6dp" />
+
+        <TextView android:id="@+id/telebirrAccountRow" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/text" android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <Button android:id="@+id/pickScreenshotButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Choose payment screenshot" android:backgroundTint="@color/panel" android:textColor="@color/text"
+        android:layout_marginBottom="12dp" />
+
+    <ImageView android:id="@+id/screenshotPreview" android:layout_width="match_parent" android:layout_height="180dp"
+        android:scaleType="centerInside" android:background="@color/panel" android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <TextView android:id="@+id/depositError" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textColor="@color/danger" android:textSize="13sp" android:layout_marginBottom="8dp" />
+
+    <Button android:id="@+id/submitDepositButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Submit for approval" android:backgroundTint="@color/gold" android:textColor="@color/bg" />
+
+</LinearLayout>
+</ScrollView>

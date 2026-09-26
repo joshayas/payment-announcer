@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#10142A</color>
+    <color name="danger">#E8615A</color>
+    <color name="gold">#F2B705</color>
+    <color name="ic_launcher_background">#10142A</color>
+    <color name="mint">#3FCF8E</color>
+    <color name="panel">#1C2347</color>
+    <color name="text">#F5F6FA</color>
+    <color name="text_dim">#8892B0</color>
+    <string name="app_name">Payment Announcer</string>
+    <string name="payment_received">Payment received</string>
+    <string name="waiting_for_payment">Waiting for payment</string>
+    <style name="Theme.PaymentAnnouncer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorPrimaryDark">@color/bg</item>
+        <item name="colorAccent">@color/mint</item>
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+</resources>

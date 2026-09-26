@@ -1,0 +1,190 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.paymentannouncer"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Needed to catch the Telebirr "127" payment SMS in real time -->
+12    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+12-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:5:5-70
+12-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:5:22-67
+13    <uses-permission android:name="android.permission.READ_SMS" />
+13-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:6:5-67
+13-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:6:22-64
+14
+15    <!-- Needed to upload the deposit screenshot and reach the backend -->
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:9:5-67
+16-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:9:22-64
+17    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+17-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:10:5-76
+17-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:10:22-73
+18    <uses-permission
+18-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:11:5-12:38
+19        android:name="android.permission.READ_EXTERNAL_STORAGE"
+19-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:11:22-77
+20        android:maxSdkVersion="32" />
+20-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:12:9-35
+21
+22    <permission
+22-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+23        android:name="com.paymentannouncer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+23-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+24        android:protectionLevel="signature" />
+24-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+25
+26    <uses-permission android:name="com.paymentannouncer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+26-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+26-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+27
+28    <application
+28-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:14:5-46:19
+29        android:allowBackup="true"
+29-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:15:9-35
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.12.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\7291032e7af6b050f92fa27cfd64597b\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+31        android:debuggable="true"
+32        android:extractNativeLibs="false"
+33        android:icon="@mipmap/ic_launcher"
+33-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:16:9-43
+34        android:label="Payment Announcer"
+34-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:17:9-42
+35        android:theme="@style/Theme.PaymentAnnouncer"
+35-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:18:9-54
+36        android:usesCleartextTraffic="true" >
+36-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:19:9-44
+37        <activity
+37-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:21:9-28:20
+38            android:name="com.paymentannouncer.LoginActivity"
+38-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:22:13-42
+39            android:exported="true" >
+39-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:23:13-36
+40            <intent-filter>
+40-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:24:13-27:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:25:17-69
+41-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:25:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:26:17-77
+43-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:26:27-74
+44            </intent-filter>
+45        </activity>
+46        <activity
+46-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:30:9-79
+47            android:name="com.paymentannouncer.RegisterActivity"
+47-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:30:19-51
+48            android:exported="false" />
+48-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:30:52-76
+49        <activity
+49-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:31:9-78
+50            android:name="com.paymentannouncer.DepositActivity"
+50-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:31:19-50
+51            android:exported="false" />
+51-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:31:51-75
+52        <activity
+52-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:32:9-77
+53            android:name="com.paymentannouncer.StatusActivity"
+53-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:32:19-49
+54            android:exported="false" />
+54-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:32:50-74
+55        <activity
+55-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:33:9-78
+56            android:name="com.paymentannouncer.PaymentActivity"
+56-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:33:19-50
+57            android:exported="false" />
+57-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:33:51-75
+58
+59        <!--
+60             Only fires while the app is installed & the driver is logged in;
+61             filters for Telebirr's short code inside the receiver itself.
+62        -->
+63        <receiver
+63-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:37:9-44:20
+64            android:name="com.paymentannouncer.SmsReceiver"
+64-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:38:13-40
+65            android:exported="true"
+65-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:39:13-36
+66            android:permission="android.permission.BROADCAST_SMS" >
+66-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:40:13-66
+67            <intent-filter android:priority="999" >
+67-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:41:13-43:29
+67-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:41:28-50
+68                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+68-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:42:17-82
+68-->C:\Users\TROJAN'S\Desktop\working area\payment-announcer\android-app\app\src\main\AndroidManifest.xml:42:25-79
+69            </intent-filter>
+70        </receiver>
+71
+72        <provider
+72-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+73            android:name="androidx.startup.InitializationProvider"
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+74            android:authorities="com.paymentannouncer.androidx-startup"
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+75            android:exported="false" >
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+76            <meta-data
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+77                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+78                android:value="androidx.startup" />
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3b9f0635569d45c7aaa6d58338d29b60\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+79            <meta-data
+79-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\5e2382d5019c4349d241a9ce807d275d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+80                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+80-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\5e2382d5019c4349d241a9ce807d275d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+81                android:value="androidx.startup" />
+81-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\5e2382d5019c4349d241a9ce807d275d\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+82            <meta-data
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+83                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+84                android:value="androidx.startup" />
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+85        </provider>
+86
+87        <receiver
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+88            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+89            android:directBootAware="false"
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+90            android:enabled="true"
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+91            android:exported="true"
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+92            android:permission="android.permission.DUMP" >
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+94                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+97                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+98            </intent-filter>
+99            <intent-filter>
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+100                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+101            </intent-filter>
+102            <intent-filter>
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+103                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\TROJAN'S\.gradle\caches\8.14.5\transforms\3ab344c68f6d90d394dd921f5d60bf7b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+104            </intent-filter>
+105        </receiver>
+106    </application>
+107
+108</manifest>
