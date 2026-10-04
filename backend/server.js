@@ -75,20 +75,45 @@ function authRequired(role) {
   };
 }
 
+function todayDateString() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function todayTotalsFor(dbData, driverId) {
+  const today = todayDateString();
+  const todays = dbData.payments.filter(
+    p => p.driverId === driverId && (p.loggedAt || '').slice(0, 10) === today
+  );
+  const totalAmount = todays.reduce((sum, p) => sum + (p.amount || 0), 0);
+  return { date: today, totalAmount, count: todays.length };
+}
+
+// =========================================================
+// ACCOUNT: registration (driver or merchant), login
+// =========================================================
+
 app.post('/api/driver/register', (req, res) => {
-  const { name, phone, plate, password } = req.body;
+  const { role, name, phone, password, plate, shopName } = req.body;
+  const accountRole = role === 'merchant' ? 'merchant' : 'driver';
+
   if (!name || !phone || !password) {
     return res.status(400).json({ error: 'name, phone and password are required' });
   }
+  if (accountRole === 'merchant' && !shopName) {
+    return res.status(400).json({ error: 'shopName is required for merchant accounts' });
+  }
+
   const dbData = load();
   if (dbData.drivers.find(d => d.phone === phone)) {
-    return res.status(409).json({ error: 'A driver with this phone number already exists' });
+    return res.status(409).json({ error: 'An account with this phone number already exists' });
   }
   const driver = {
     id: dbData.nextDriverId++,
+    role: accountRole,
     name,
     phone,
-    plate: plate || null,
+    plate: accountRole === 'driver' ? (plate || null) : null,
+    shopName: accountRole === 'merchant' ? shopName : null,
     passwordHash: bcrypt.hashSync(password, 10),
     status: 'pending_deposit',
     depositScreenshot: null,
@@ -130,6 +155,41 @@ app.get('/api/driver/me', authRequired('driver'), (req, res) => {
       : undefined,
   });
 });
+
+// Edit profile info (name / plate / shop name) — phone stays fixed, it's the login identity.
+app.patch('/api/driver/profile', authRequired('driver'), (req, res) => {
+  const dbData = load();
+  const driver = dbData.drivers.find(d => d.id === req.auth.driverId);
+  if (!driver) return res.status(404).json({ error: 'Driver not found' });
+
+  const { name, plate, shopName } = req.body;
+  if (name && name.trim()) driver.name = name.trim();
+  if (driver.role === 'driver' && plate !== undefined) driver.plate = plate.trim() || null;
+  if (driver.role === 'merchant' && shopName && shopName.trim()) driver.shopName = shopName.trim();
+
+  save(dbData);
+  res.json({ driver: publicDriver(driver) });
+});
+
+app.post('/api/driver/change-password', authRequired('driver'), (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  const dbData = load();
+  const driver = dbData.drivers.find(d => d.id === req.auth.driverId);
+  if (!driver) return res.status(404).json({ error: 'Driver not found' });
+  if (!currentPassword || !bcrypt.compareSync(currentPassword, driver.passwordHash)) {
+    return res.status(401).json({ error: 'Current password is incorrect' });
+  }
+  if (!newPassword || newPassword.length < 6) {
+    return res.status(400).json({ error: 'New password must be at least 6 characters' });
+  }
+  driver.passwordHash = bcrypt.hashSync(newPassword, 10);
+  save(dbData);
+  res.json({ ok: true });
+});
+
+// =========================================================
+// DEPOSIT + PAYMENT LOG
+// =========================================================
 
 app.post('/api/driver/deposit', authRequired('driver'), upload.single('screenshot'), (req, res) => {
   const dbData = load();
@@ -179,10 +239,19 @@ app.get('/api/driver/payments', authRequired('driver'), (req, res) => {
   res.json({ payments: mine });
 });
 
+app.get('/api/driver/payments/today', authRequired('driver'), (req, res) => {
+  const dbData = load();
+  res.json(todayTotalsFor(dbData, req.auth.driverId));
+});
+
 function publicDriver(d) {
   const { passwordHash, ...rest } = d;
   return rest;
 }
+
+// =========================================================
+// ADMIN
+// =========================================================
 
 app.post('/api/admin/login', (req, res) => {
   const { username, password } = req.body;
@@ -202,7 +271,9 @@ app.get('/api/admin/drivers', authRequired('admin'), (req, res) => {
   drivers = drivers
     .slice()
     .sort((a, b) => new Date(b.submittedAt || b.createdAt) - new Date(a.submittedAt || a.createdAt));
-  res.json({ drivers: drivers.map(publicDriver) });
+  res.json({
+    drivers: drivers.map(d => ({ ...publicDriver(d), today: todayTotalsFor(dbData, d.id) })),
+  });
 });
 
 app.post('/api/admin/drivers/:id/approve', authRequired('admin'), (req, res) => {
