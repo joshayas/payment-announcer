@@ -14,8 +14,6 @@ const { parseTelebirrSms } = require('./smsParser');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// âš ï¸ Set real secrets via environment variables in production.
-// These fallbacks are only for local development.
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
 const DEPOSIT_AMOUNT_ETB = 500;
 const DEPOSIT_ACCOUNTS = {
@@ -39,14 +37,13 @@ const storage = multer.diskStorage({
 });
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (!file.mimetype.startsWith('image/')) return cb(new Error('Only image files are allowed'));
     cb(null, true);
   },
 });
 
-// ---------- Bootstrap: seed a default admin account on first run ----------
 (function seedAdmin() {
   const dbData = load();
   if (dbData.admins.length === 0) {
@@ -62,7 +59,6 @@ const upload = multer({
   }
 })();
 
-// ---------- Auth middleware ----------
 function authRequired(role) {
   return (req, res, next) => {
     const header = req.headers.authorization || '';
@@ -79,11 +75,6 @@ function authRequired(role) {
   };
 }
 
-// =========================================================
-// DRIVER: registration, login, deposit, status, payment log
-// =========================================================
-
-// Register a new driver account. Status starts as "pending_deposit".
 app.post('/api/driver/register', (req, res) => {
   const { name, phone, plate, password } = req.body;
   if (!name || !phone || !password) {
@@ -99,7 +90,7 @@ app.post('/api/driver/register', (req, res) => {
     phone,
     plate: plate || null,
     passwordHash: bcrypt.hashSync(password, 10),
-    status: 'pending_deposit', // pending_deposit -> pending_approval -> approved | rejected
+    status: 'pending_deposit',
     depositScreenshot: null,
     createdAt: new Date().toISOString(),
     submittedAt: null,
@@ -140,7 +131,6 @@ app.get('/api/driver/me', authRequired('driver'), (req, res) => {
   });
 });
 
-// Driver uploads their deposit screenshot -> moves to pending_approval
 app.post('/api/driver/deposit', authRequired('driver'), upload.single('screenshot'), (req, res) => {
   const dbData = load();
   const driver = dbData.drivers.find(d => d.id === req.auth.driverId);
@@ -157,8 +147,6 @@ app.post('/api/driver/deposit', authRequired('driver'), upload.single('screensho
   res.json({ driver: publicDriver(driver) });
 });
 
-// Driver app calls this whenever it parses a live Telebirr SMS, so payments are
-// centrally logged (useful for dispute resolution and driver payment history).
 app.post('/api/payments/log', authRequired('driver'), (req, res) => {
   const { rawSms } = req.body;
   const parsed = parseTelebirrSms(rawSms);
@@ -196,10 +184,6 @@ function publicDriver(d) {
   return rest;
 }
 
-// =========================================================
-// ADMIN: login, list drivers, approve / reject
-// =========================================================
-
 app.post('/api/admin/login', (req, res) => {
   const { username, password } = req.body;
   const dbData = load();
@@ -211,7 +195,6 @@ app.post('/api/admin/login', (req, res) => {
   res.json({ token, admin: { id: admin.id, username: admin.username } });
 });
 
-// ?status=pending_approval | approved | rejected | pending_deposit (omit for all)
 app.get('/api/admin/drivers', authRequired('admin'), (req, res) => {
   const dbData = load();
   let drivers = dbData.drivers;
@@ -268,7 +251,6 @@ app.post('/api/admin/update-credentials', authRequired('admin'), (req, res) => {
   res.json({ admin: { id: admin.id, username: admin.username } });
 });
 
-app.get('/api/health'
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));
 
 app.listen(PORT, () => {
