@@ -14,7 +14,7 @@ const { parseTelebirrSms } = require('./smsParser');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// ⚠️ Set real secrets via environment variables in production.
+// âš ï¸ Set real secrets via environment variables in production.
 // These fallbacks are only for local development.
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
 const DEPOSIT_AMOUNT_ETB = 500;
@@ -249,6 +249,26 @@ app.post('/api/admin/drivers/:id/reject', authRequired('admin'), (req, res) => {
   res.json({ driver: publicDriver(driver) });
 });
 
+app.post('/api/admin/update-credentials', authRequired('admin'), (req, res) => {
+  const { currentPassword, newUsername, newPassword } = req.body;
+  const dbData = load();
+  const admin = dbData.admins.find(a => a.id === req.auth.adminId);
+  if (!admin) return res.status(404).json({ error: 'Admin not found' });
+  if (!currentPassword || !bcrypt.compareSync(currentPassword, admin.passwordHash)) {
+    return res.status(401).json({ error: 'Current password is incorrect' });
+  }
+  if (newUsername && newUsername.trim()) {
+    admin.username = newUsername.trim();
+  }
+  if (newPassword && newPassword.trim()) {
+    if (newPassword.length < 6) return res.status(400).json({ error: 'New password must be at least 6 characters' });
+    admin.passwordHash = bcrypt.hashSync(newPassword, 10);
+  }
+  save(dbData);
+  res.json({ admin: { id: admin.id, username: admin.username } });
+});
+
+app.get('/api/health'
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));
 
 app.listen(PORT, () => {

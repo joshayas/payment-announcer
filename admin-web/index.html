@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment Announcer — Admin</title>
+<title>Payment Announcer â€” Admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <div class="login-wrap" id="loginScreen">
     <div class="login-card">
       <div class="brand">
-        <div class="brand-mark">ብር</div>
+        <div class="brand-mark">á‰¥áˆ­</div>
         <div class="brand-text">
           <strong>Payment Announcer</strong>
           <span>Admin console</span>
@@ -36,9 +36,10 @@
   <div class="dashboard" id="dashboard" style="display:none;">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark">ብር</div>
+        <div class="brand-mark">á‰¥áˆ­</div>
         <div class="brand-text"><strong>Payment Announcer</strong><span>Admin console</span></div>
       </div>
+      <button class="btn btn-outline btn-small" id="credentialsBtn">Change credentials</button>
       <button class="btn btn-outline btn-small" id="logoutBtn">Log out</button>
     </header>
 
@@ -63,6 +64,25 @@
       <div class="modal-actions">
         <button class="btn btn-outline" id="cancelRejectBtn">Cancel</button>
         <button class="btn btn-danger" id="confirmRejectBtn">Reject driver</button>
+      </div>
+    </div>
+  </div>
+
+<script>window.PAYMENT_ANNOUNCER_API_BASE = "https://payment-announcer.onrender.com";</script>
+  <div class="modal-backdrop" id="credentialsModal" style="display:none;">
+    <div class="modal">
+      <h3>Change credentials</h3>
+      <p class="desc">Enter your current password to confirm, then set a new username and/or password. Leave a field blank to keep it unchanged.</p>
+      <label style="display:block;font-size:12.5px;color:var(--text-dim);font-weight:600;margin-bottom:6px;">Current password</label>
+      <input type="password" id="currentPasswordInput" style="width:100%;font-family:'DM Sans', sans-serif;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;color:var(--text);font-size:14px;margin-bottom:14px;">
+      <label style="display:block;font-size:12.5px;color:var(--text-dim);font-weight:600;margin-bottom:6px;">New username (optional)</label>
+      <input type="text" id="newUsernameInput" style="width:100%;font-family:'DM Sans', sans-serif;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;color:var(--text);font-size:14px;margin-bottom:14px;">
+      <label style="display:block;font-size:12.5px;color:var(--text-dim);font-weight:600;margin-bottom:6px;">New password (optional)</label>
+      <input type="password" id="newPasswordInput" style="width:100%;font-family:'DM Sans', sans-serif;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;color:var(--text);font-size:14px;margin-bottom:14px;">
+      <p class="error" id="credentialsError" style="color:var(--danger);font-size:13px;margin:0 0 10px;min-height:16px;"></p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" id="cancelCredentialsBtn">Cancel</button>
+        <button class="btn btn-mint" id="confirmCredentialsBtn">Save changes</button>
       </div>
     </div>
   </div>

@@ -76,7 +76,7 @@ tabs.forEach(tab => {
 });
 
 async function loadDrivers(){
-  driverList.innerHTML = '<p class="empty-state">Loading…</p>';
+  driverList.innerHTML = '<p class="empty-state">Loadingâ€¦</p>';
   try{
     const qs = currentStatus ? `?status=${currentStatus}` : '';
     const data = await api(`/api/admin/drivers${qs}`);
@@ -96,8 +96,8 @@ function renderDrivers(drivers){
       <div class="driver-head">
         <div>
           <div class="driver-name">${escapeHtml(d.name)}</div>
-          <div class="driver-meta">${escapeHtml(d.phone)}${d.plate ? ' · ' + escapeHtml(d.plate) : ''}</div>
-          <div class="driver-meta">Submitted ${d.submittedAt ? timeAgo(d.submittedAt) : '—'}</div>
+          <div class="driver-meta">${escapeHtml(d.phone)}${d.plate ? ' Â· ' + escapeHtml(d.plate) : ''}</div>
+          <div class="driver-meta">Submitted ${d.submittedAt ? timeAgo(d.submittedAt) : 'â€”'}</div>
         </div>
         <span class="badge ${d.status}">${statusLabel(d.status)}</span>
       </div>
@@ -165,6 +165,34 @@ function escapeHtml(str){
   d.textContent = str == null ? '' : String(str);
   return d.innerHTML;
 }
+
+$('credentialsBtn').addEventListener('click', () => {
+  $('currentPasswordInput').value = '';
+  $('newUsernameInput').value = '';
+  $('newPasswordInput').value = '';
+  $('credentialsError').textContent = '';
+  $('credentialsModal').style.display = 'flex';
+});
+$('cancelCredentialsBtn').addEventListener('click', () => { $('credentialsModal').style.display = 'none'; });
+$('confirmCredentialsBtn').addEventListener('click', async () => {
+  $('credentialsError').textContent = '';
+  try{
+    const body = {
+      currentPassword: $('currentPasswordInput').value,
+      newUsername: $('newUsernameInput').value.trim() || undefined,
+      newPassword: $('newPasswordInput').value.trim() || undefined,
+    };
+    await api('/api/admin/update-credentials', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    $('credentialsModal').style.display = 'none';
+    alert('Credentials updated. Use your new login next time.');
+  }catch(err){
+    $('credentialsError').textContent = err.message;
+  }
+});
 
 // Boot
 if(getToken()) showDashboard(); else showLogin();
