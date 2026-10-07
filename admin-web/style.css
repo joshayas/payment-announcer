@@ -68,3 +68,7 @@ body{
 .modal textarea{ width:100%; min-height:80px; font-family:'DM Sans', sans-serif; background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:11px 13px; color:var(--text); font-size:14px; margin-bottom:14px; resize:vertical; }
 .modal-actions{ display:flex; gap:10px; }
 .modal-actions .btn{ flex:1; }
+
+.role-badge{ font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:999px; margin-left:8px; text-transform:uppercase; letter-spacing:0.3px; }
+.role-badge.driver{ background:var(--panel-2); color:var(--gold); border:1px solid var(--gold-dim); }
+.role-badge.merchant{ background:var(--panel-2); color:var(--mint); border:1px solid var(--mint-dim); }

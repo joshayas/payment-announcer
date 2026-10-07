@@ -1,5 +1,3 @@
-// Point this at your backend. When you deploy the backend somewhere real
-// (Render, a VPS, etc.), change this to that URL.
 const API_BASE = window.PAYMENT_ANNOUNCER_API_BASE || 'http://localhost:4000';
 
 const $ = (id) => document.getElementById(id);
@@ -76,7 +74,7 @@ tabs.forEach(tab => {
 });
 
 async function loadDrivers(){
-  driverList.innerHTML = '<p class="empty-state">Loadingâ€¦</p>';
+  driverList.innerHTML = '<p class="empty-state">Loading...</p>';
   try{
     const qs = currentStatus ? `?status=${currentStatus}` : '';
     const data = await api(`/api/admin/drivers${qs}`);
@@ -91,13 +89,19 @@ function renderDrivers(drivers){
     driverList.innerHTML = '<p class="empty-state">Nothing here right now.</p>';
     return;
   }
-  driverList.innerHTML = drivers.map(d => `
+  driverList.innerHTML = drivers.map(d => {
+    const roleLabel = d.role === 'merchant' ? 'Merchant' : 'Driver';
+    const detailLine = d.role === 'merchant'
+      ? (d.shopName ? escapeHtml(d.shopName) : '')
+      : (d.plate ? escapeHtml(d.plate) : '');
+    const sep = ' | ';
+    return `
     <div class="driver-card" data-id="${d.id}">
       <div class="driver-head">
         <div>
-          <div class="driver-name">${escapeHtml(d.name)}</div>
-          <div class="driver-meta">${escapeHtml(d.phone)}${d.plate ? ' Â· ' + escapeHtml(d.plate) : ''}</div>
-          <div class="driver-meta">Submitted ${d.submittedAt ? timeAgo(d.submittedAt) : 'â€”'}</div>
+          <div class="driver-name">${escapeHtml(d.name)}<span class="role-badge ${d.role || 'driver'}">${roleLabel}</span></div>
+          <div class="driver-meta">${escapeHtml(d.phone)}${detailLine ? sep + detailLine : ''}</div>
+          <div class="driver-meta">Submitted ${d.submittedAt ? timeAgo(d.submittedAt) : 'unknown'}</div>
         </div>
         <span class="badge ${d.status}">${statusLabel(d.status)}</span>
       </div>
@@ -110,7 +114,8 @@ function renderDrivers(drivers){
         </div>
       ` : ''}
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   driverList.querySelectorAll('[data-action="approve"]').forEach(btn => {
     btn.addEventListener('click', () => approveDriver(btn.dataset.id));
