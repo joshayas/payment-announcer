@@ -27,7 +27,6 @@ function parseCbe(rawText) {
   const balanceMatch = rawText.match(/balance\s+is\s+ETB\s*([\d,]+(?:\.\d{1,2})?)/i);
   const balanceAfter = balanceMatch ? toNumber(balanceMatch[1]) : null;
 
-  // "You have received ETB 1,020.00 from account 1**6573 (Payer Name) to your account ..."
   const named = rawText.match(/received\s+ETB\s*([\d,]+(?:\.\d{1,2})?)\s+from\s+account\s+\S+\s*\(([^)]+)\)/i);
   if (named) {
     return {
@@ -41,7 +40,6 @@ function parseCbe(rawText) {
     };
   }
 
-  // "Your Account 1****9289 has been credited with ETB 60000.00." (no payer name)
   const credited = rawText.match(/credited\s+with\s+ETB\s*([\d,]+(?:\.\d{1,2})?)/i);
   if (credited) {
     const receiptMatch = rawText.match(/BranchReceipt\/([A-Z0-9]+)/i);
@@ -65,5 +63,4 @@ function parsePaymentSms(rawText) {
   return parseTelebirr(rawText);
 }
 
-// server.js still imports the old name, so keep it as an alias.
 module.exports = { parsePaymentSms, parseTelebirrSms: parsePaymentSms };
