@@ -1,16 +1,5 @@
 package com.paymentannouncer
 
-/**
- * Parses the standard Telebirr "received payment" SMS, sent from short code 127:
- *
- * Dear Dawit
- * You have received ETB 200.00 from bazet asere(2519****2144) on 23/07/2026 16:15:47.
- * Your transaction number is DGN16ERWAR. Your current E-Money Account balance is ETB 206.84.
- * Thank you for using telebirr
- * Ethio telecom
- *
- * Keep this in sync with backend/smsParser.js if Telebirr changes their wording.
- */
 data class ParsedPayment(
     val amount: Double,
     val senderName: String,
@@ -18,6 +7,8 @@ data class ParsedPayment(
     val txnDate: String?,
     val txnId: String?,
     val balanceAfter: Double?,
+    val source: String = "telebirr", // "telebirr" or "cbe"
+    val hasName: Boolean = true,     // false when the bank message has no payer name
 )
 
 object TelebirrSmsParser {
@@ -46,6 +37,5 @@ object TelebirrSmsParser {
         )
     }
 
-    /** Telebirr sends payment notifications from this short code. */
     const val TELEBIRR_SENDER = "127"
 }

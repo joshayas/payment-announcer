@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Payment Announcer"
+        android:label="@string/app_name"
         android:theme="@style/Theme.PaymentAnnouncer"
         android:usesCleartextTraffic="true">
 
@@ -30,6 +30,7 @@
         <activity android:name=".RegisterActivity" android:exported="false" />
         <activity android:name=".DepositActivity" android:exported="false" />
         <activity android:name=".StatusActivity" android:exported="false" />
+        <activity android:name=".ProfileActivity" android:exported="false" />
         <activity android:name=".PaymentActivity" android:exported="false" />
 
         <!-- Only fires while the app is installed & the driver is logged in;

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Profile" android:textColor="@color/text" android:textSize="20sp" android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView android:id="@+id/profileRoleText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="" android:textColor="@color/text_dim" android:textSize="13sp" android:layout_marginBottom="20dp" />
+
+    <!-- Account info -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+        android:background="@color/panel" android:padding="16dp" android:layout_marginBottom="16dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Account info" android:textColor="@color/text" android:textSize="14sp" android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <EditText android:id="@+id/profileNameInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Full name" android:textColor="@color/text" android:textColorHint="@color/text_dim"
+            android:padding="12dp" android:background="@color/bg" android:layout_marginBottom="10dp" />
+
+        <EditText android:id="@+id/profileShopNameInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Shop name" android:textColor="@color/text" android:textColorHint="@color/text_dim"
+            android:padding="12dp" android:background="@color/bg" android:layout_marginBottom="10dp" android:visibility="gone" />
+
+        <EditText android:id="@+id/profilePlateInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Taxi plate number" android:textColor="@color/text" android:textColorHint="@color/text_dim"
+            android:padding="12dp" android:background="@color/bg" android:layout_marginBottom="10dp" android:visibility="gone" />
+
+        <TextView android:id="@+id/profilePhoneText" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/text_dim" android:textSize="12.5sp" android:padding="4dp" android:layout_marginBottom="10dp" />
+
+        <TextView android:id="@+id/profileSaveError" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/danger" android:textSize="12.5sp" android:layout_marginBottom="6dp" />
+
+        <Button android:id="@+id/profileSaveButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Save changes" android:backgroundTint="@color/gold" android:textColor="@color/bg" />
+    </LinearLayout>
+
+    <!-- Change password -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+        android:background="@color/panel" android:padding="16dp" android:layout_marginBottom="16dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Change password" android:textColor="@color/text" android:textSize="14sp" android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <EditText android:id="@+id/currentPasswordInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Current password" android:inputType="textPassword" android:textColor="@color/text" android:textColorHint="@color/text_dim"
+            android:padding="12dp" android:background="@color/bg" android:layout_marginBottom="10dp" />
+
+        <EditText android:id="@+id/newPasswordInput" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="New password" android:inputType="textPassword" android:textColor="@color/text" android:textColorHint="@color/text_dim"
+            android:padding="12dp" android:background="@color/bg" android:layout_marginBottom="10dp" />
+
+        <TextView android:id="@+id/passwordError" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/danger" android:textSize="12.5sp" android:layout_marginBottom="6dp" />
+
+        <Button android:id="@+id/changePasswordButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Update password" android:backgroundTint="@color/mint" android:textColor="@color/bg" />
+    </LinearLayout>
+
+    <Button android:id="@+id/profileBackButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Back to payment screen" android:backgroundTint="@color/panel" android:textColor="@color/text" />
+
+    <Button android:id="@+id/logoutButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Log out" android:backgroundTint="@color/danger" android:textColor="@color/bg" android:layout_marginTop="12dp" />
+
+</LinearLayout>
+</ScrollView>

@@ -20,9 +20,12 @@
         android:text="Check again" android:backgroundTint="@color/panel" android:textColor="@color/text" android:layout_marginBottom="12dp" />
 
     <Button android:id="@+id/enterAppButton" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="Open payment screen" android:backgroundTint="@color/mint" android:textColor="@color/bg" android:visibility="gone" />
+        android:text="Open payment screen" android:backgroundTint="@color/mint" android:textColor="@color/bg" android:visibility="gone" android:layout_marginBottom="12dp" />
 
     <Button android:id="@+id/resubmitButton" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="Resubmit screenshot" android:backgroundTint="@color/gold" android:textColor="@color/bg" android:visibility="gone" />
+        android:text="Resubmit screenshot" android:backgroundTint="@color/gold" android:textColor="@color/bg" android:visibility="gone" android:layout_marginBottom="12dp" />
+
+    <Button android:id="@+id/statusProfileButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="👤 Profile" android:backgroundTint="@color/panel" android:textColor="@color/text_dim" />
 
 </LinearLayout>

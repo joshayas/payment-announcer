@@ -3,45 +3,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
+    android:padding="18dp"
     android:background="@color/bg">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="10dp">
 
         <Button android:id="@+id/langEnButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="English" android:backgroundTint="@color/gold" android:textColor="@color/bg" android:textSize="12sp" />
+            android:text="English" android:backgroundTint="@color/gold" android:textColor="@color/bg" android:textSize="11sp" />
 
         <Button android:id="@+id/langAmButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="አማርኛ" android:backgroundTint="@color/panel" android:textColor="@color/text" android:textSize="12sp"
-            android:layout_marginStart="8dp" />
+            android:text="አማርኛ" android:backgroundTint="@color/panel" android:textColor="@color/text" android:textSize="11sp"
+            android:layout_marginStart="6dp" />
+
+        <Button android:id="@+id/soundModeButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔊 Voice" android:backgroundTint="@color/panel" android:textColor="@color/text" android:textSize="11sp"
+            android:layout_marginStart="6dp" />
+
+        <Button android:id="@+id/profileButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="👤" android:backgroundTint="@color/panel" android:textColor="@color/text" android:textSize="11sp"
+            android:layout_marginStart="6dp" />
     </LinearLayout>
 
-    <TextView android:id="@+id/statusChip" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="@string/waiting_for_payment" android:textColor="@color/text_dim" android:textSize="13sp"
-        android:background="@color/panel" android:padding="10dp" android:layout_marginBottom="24dp" />
+    <TextView android:id="@+id/dailyTotalText" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Today: ETB 0 · 0 payments" android:textColor="@color/gold" android:textSize="22sp" android:textStyle="bold"
+        android:gravity="center" android:background="@color/panel" android:padding="12dp" android:layout_marginBottom="10dp" />
 
-    <!-- This is the "big name" the driver glances at -->
-    <TextView android:id="@+id/senderNameText" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="—" android:textColor="@color/text_dim" android:textSize="40sp" android:textStyle="bold"
-        android:gravity="center" android:layout_marginBottom="14dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView android:id="@+id/amountText" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textColor="@color/gold" android:textSize="26sp" android:textStyle="bold" android:visibility="gone"
-        android:layout_marginBottom="10dp" />
+        <TextView android:id="@+id/statusChip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/waiting_for_payment" android:textColor="@color/text_dim" android:textSize="13sp"
+            android:background="@color/panel" android:padding="10dp" android:layout_marginBottom="16dp" android:layout_gravity="center" />
 
-    <TextView android:id="@+id/metaText" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textColor="@color/text_dim" android:textSize="12sp" android:gravity="center" />
+        <TextView android:id="@+id/senderNameText" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="—" android:textColor="@color/text_dim" android:textSize="52sp" android:textStyle="bold"
+            android:gravity="center" android:layout_marginBottom="12dp" android:maxLines="2" android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="28sp" android:autoSizeMaxTextSize="52sp" />
 
-    <Button android:id="@+id/repeatButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="🔊 Repeat" android:backgroundTint="@color/panel" android:textColor="@color/text" android:layout_marginTop="28dp" />
+        <TextView android:id="@+id/amountText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="@color/gold" android:textSize="40sp" android:textStyle="bold" android:visibility="gone"
+            android:layout_gravity="center" android:layout_marginBottom="8dp" />
 
-    <!-- Only present for local testing without a real SIM/SMS; remove once verified on-device -->
-    <Button android:id="@+id/testSmsButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Simulate test SMS" android:backgroundTint="@color/panel" android:textColor="@color/text_dim" android:layout_marginTop="12dp" />
+        <TextView android:id="@+id/metaText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="@color/text_dim" android:textSize="12sp" android:gravity="center" android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp">
+
+            <Button android:id="@+id/repeatButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔁 Repeat" android:backgroundTint="@color/panel" android:textColor="@color/text" />
+
+            <Button android:id="@+id/testSmsButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Simulate test SMS" android:backgroundTint="@color/panel" android:textColor="@color/text_dim"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView android:id="@+id/historyLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Recent payments" android:textColor="@color/text_dim" android:textSize="13sp" android:textStyle="bold"
+        android:layout_marginTop="10dp" android:layout_marginBottom="6dp" android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/historyScroll"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/historyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </LinearLayout>

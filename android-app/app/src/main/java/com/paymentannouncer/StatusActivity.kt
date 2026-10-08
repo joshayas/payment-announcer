@@ -21,7 +21,15 @@ class StatusActivity : AppCompatActivity() {
             startActivity(Intent(this, DepositActivity::class.java))
             finish()
         }
+        findViewById<android.widget.Button>(R.id.statusProfileButton).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
+        loadStatus()
+    }
+
+    override fun onResume() {
+        super.onResume()
         loadStatus()
     }
 
@@ -35,6 +43,14 @@ class StatusActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val response = ApiClient.api.me(SessionManager.bearer(this@StatusActivity))
+
+                if (response.code() == 401 || response.code() == 404) {
+                    SessionManager.clear(this@StatusActivity)
+                    startActivity(Intent(this@StatusActivity, LoginActivity::class.java))
+                    finish()
+                    return@launch
+                }
+
                 val driver = response.body()?.driver ?: return@launch
 
                 when (driver.status) {
