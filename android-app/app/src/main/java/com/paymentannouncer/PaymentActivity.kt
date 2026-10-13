@@ -87,19 +87,7 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             lastPayment?.let { announce(it) }
         }
 
-        findViewById<Button>(R.id.testSmsButton).setOnClickListener {
-            val names = listOf("Sample Passenger", "Demo Rider", "Test User", "Sample Customer")
-            val amounts = listOf(50.0, 75.0, 120.0, 200.0, 35.0)
-            val sample = ParsedPayment(
-                amount = amounts.random(),
-                senderName = names.random(),
-                maskedPhone = "2519****2144",
-                txnDate = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(Date()),
-                txnId = "TEST${(1000..9999).random()}",
-                balanceAfter = null,
-            )
-            onPaymentReceived(sample)
-        }
+        
 
         loadTodayTotal()
         ensureSmsPermissions()
@@ -108,7 +96,24 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onResume() {
         super.onResume()
         PaymentEventBus.setListener { payment -> runOnUiThread { onPaymentReceived(payment) } }
+        checkAccountStillValid()
         loadTodayTotal()
+    }
+
+    private fun checkAccountStillValid() {
+        lifecycleScope.launch {
+            try {
+                val response = ApiClient.api.me(SessionManager.bearer(this@PaymentActivity))
+                if (response.code() == 401 || response.code() == 404) {
+                    SessionManager.clear(this@PaymentActivity)
+                    val intent = Intent(this@PaymentActivity, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
+            } catch (_: Exception) {
+                // Offline or server asleep: keep working as normal.
+            }
+        }
     }
 
     private fun loadTodayTotal() {
@@ -159,7 +164,7 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun showPermissionDeniedDialog() {
         AlertDialog.Builder(this)
             .setTitle("SMS permission is off")
-            .setMessage("Payment Announcer can't detect payments automatically without SMS access. You can still use \"Simulate test SMS\", or turn on the permission anytime in Settings.")
+            .setMessage("Payment Announcer can't detect payments automatically without SMS access. You can turn the permission on anytime in Settings.")
             .setPositiveButton("Open Settings") { _, _ ->
                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                     data = Uri.fromParts("package", packageName, null)

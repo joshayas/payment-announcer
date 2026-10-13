@@ -107,6 +107,7 @@ function renderDrivers(drivers){
       </div>
       ${d.depositScreenshot ? `<img class="driver-shot" src="${API_BASE}${d.depositScreenshot}" alt="Deposit screenshot for ${escapeHtml(d.name)}">` : ''}
       ${d.rejectionNote ? `<div class="rejection-note">Note: ${escapeHtml(d.rejectionNote)}</div>` : ''}
+      ${d.status !== 'pending_approval' ? `<div class="driver-actions" style="margin-top:14px;"><button class="btn btn-outline" data-action="remove" data-id="${d.id}">Remove</button></div>` : ''}
       ${d.status === 'pending_approval' ? `
         <div class="driver-actions" style="margin-top:14px;">
           <button class="btn btn-danger" data-action="reject" data-id="${d.id}">Reject</button>
@@ -120,9 +121,22 @@ function renderDrivers(drivers){
   driverList.querySelectorAll('[data-action="approve"]').forEach(btn => {
     btn.addEventListener('click', () => approveDriver(btn.dataset.id));
   });
+  driverList.querySelectorAll('[data-action="remove"]').forEach(btn => {
+    btn.addEventListener('click', () => removeDriver(btn.dataset.id));
+  });
   driverList.querySelectorAll('[data-action="reject"]').forEach(btn => {
     btn.addEventListener('click', () => openRejectModal(btn.dataset.id));
   });
+}
+
+async function removeDriver(id){
+  if(!confirm('Remove this account permanently? They will be logged out and their payment records deleted. This cannot be undone.')) return;
+  try{
+    await api(`/api/admin/drivers/${id}`, { method: 'DELETE' });
+    loadDrivers();
+  }catch(err){
+    alert(err.message);
+  }
 }
 
 async function approveDriver(id){

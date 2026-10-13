@@ -303,6 +303,23 @@ app.post('/api/admin/drivers/:id/reject', authRequired('admin'), (req, res) => {
   res.json({ driver: publicDriver(driver) });
 });
 
+app.delete('/api/admin/drivers/:id', authRequired('admin'), (req, res) => {
+  const dbData = load();
+  const id = parseInt(req.params.id, 10);
+  const index = dbData.drivers.findIndex(d => d.id === id);
+  if (index === -1) return res.status(404).json({ error: 'Account not found' });
+
+  const removed = dbData.drivers.splice(index, 1)[0];
+  dbData.payments = dbData.payments.filter(p => p.driverId !== id);
+  save(dbData);
+
+  if (removed.depositScreenshot) {
+    const file = path.join(uploadsDir, path.basename(removed.depositScreenshot));
+    fs.unlink(file, () => {});
+  }
+  res.json({ ok: true });
+});
+
 app.post('/api/admin/update-credentials', authRequired('admin'), (req, res) => {
   const { currentPassword, newUsername, newPassword } = req.body;
   const dbData = load();

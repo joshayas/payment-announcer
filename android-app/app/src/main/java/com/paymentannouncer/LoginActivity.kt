@@ -12,6 +12,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        lifecycleScope.launch { try { ApiClient.api.health() } catch (_: Exception) { } }
+
         if (SessionManager.isLoggedIn(this)) {
             goToStatus()
             return
@@ -37,14 +39,17 @@ class LoginActivity : AppCompatActivity() {
             errorText.text = ""
             lifecycleScope.launch {
                 try {
+                    loginButton.isEnabled = false
+                    loginButton.text = "Logging in..."
                     val response = ApiClient.api.login(LoginRequest(phone, password))
                     if (response.isSuccessful && response.body() != null) {
                         SessionManager.saveToken(this@LoginActivity, response.body()!!.token)
                         goToStatus()
                     } else {
-                        errorText.text = "Incorrect phone or password"
+                        loginButton.isEnabled = true; loginButton.text = "Log in"; errorText.text = "Incorrect phone or password"
                     }
                 } catch (e: Exception) {
+                    loginButton.isEnabled = true; loginButton.text = "Log in"
                     errorText.text = "Couldn't reach the server: ${e.message}"
                 }
             }

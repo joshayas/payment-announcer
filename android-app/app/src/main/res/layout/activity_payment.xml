@@ -66,9 +66,7 @@
             <Button android:id="@+id/repeatButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="🔁 Repeat" android:backgroundTint="@color/panel" android:textColor="@color/text" />
 
-            <Button android:id="@+id/testSmsButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Simulate test SMS" android:backgroundTint="@color/panel" android:textColor="@color/text_dim"
-                android:layout_marginStart="10dp" />
+            
         </LinearLayout>
     </LinearLayout>
 

@@ -91,6 +91,9 @@ interface PaymentAnnouncerApi {
         @Body body: PaymentLogRequest,
     ): Response<PaymentLogResponse>
 
+    @GET("/api/health")
+    suspend fun health(): Response<okhttp3.ResponseBody>
+
     @GET("/api/driver/payments/today")
     suspend fun todayTotal(@Header("Authorization") bearer: String): Response<TodayTotal>
 }

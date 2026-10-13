@@ -68,6 +68,8 @@ class RegisterActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
+                    registerButton.isEnabled = false
+                    registerButton.text = "Creating account..."
                     val response = ApiClient.api.register(
                         RegisterRequest(
                             role = role,
@@ -83,9 +85,10 @@ class RegisterActivity : AppCompatActivity() {
                         startActivity(Intent(this@RegisterActivity, DepositActivity::class.java))
                         finish()
                     } else {
-                        errorText.text = "That phone number may already be registered"
+                        registerButton.isEnabled = true; registerButton.text = "Continue to deposit"; errorText.text = "That phone number may already be registered"
                     }
                 } catch (e: Exception) {
+                    registerButton.isEnabled = true; registerButton.text = "Continue to deposit"
                     errorText.text = "Couldn't reach the server: ${e.message}"
                 }
             }
