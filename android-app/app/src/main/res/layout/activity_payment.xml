@@ -40,34 +40,68 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <ImageView android:id="@+id/statusIcon" android:layout_width="96dp" android:layout_height="96dp"
+            android:src="@drawable/ic_waiting" android:layout_gravity="center" android:layout_marginBottom="8dp" />
+
         <TextView android:id="@+id/statusChip" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/waiting_for_payment" android:textColor="@color/text_dim" android:textSize="13sp"
-            android:background="@color/panel" android:padding="10dp" android:layout_marginBottom="16dp" android:layout_gravity="center" />
-
-        <TextView android:id="@+id/senderNameText" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="—" android:textColor="@color/text_dim" android:textSize="52sp" android:textStyle="bold"
-            android:gravity="center" android:layout_marginBottom="12dp" android:maxLines="2" android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="28sp" android:autoSizeMaxTextSize="52sp" />
-
-        <TextView android:id="@+id/amountText" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textColor="@color/gold" android:textSize="40sp" android:textStyle="bold" android:visibility="gone"
-            android:layout_gravity="center" android:layout_marginBottom="8dp" />
-
-        <TextView android:id="@+id/metaText" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textColor="@color/text_dim" android:textSize="12sp" android:gravity="center" android:layout_gravity="center" />
+            android:text="@string/waiting_for_payment" android:textColor="@color/text_dim" android:textSize="26sp"
+            android:textStyle="bold" android:layout_gravity="center" android:layout_marginBottom="16dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp">
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="18dp"
+            android:visibility="gone">
 
-            <Button android:id="@+id/repeatButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔁 Repeat" android:backgroundTint="@color/panel" android:textColor="@color/text" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_person" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="From" android:textColor="@color/text_dim" android:textSize="14sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/senderNameText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="—" android:textColor="@color/text_dim" android:textSize="40sp" android:textStyle="bold"
+                android:gravity="center" android:maxLines="2" android:layout_marginTop="8dp" android:layout_marginBottom="14dp"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="24sp" android:autoSizeMaxTextSize="40sp" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2F3A70" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="14dp">
+
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_coin" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Amount" android:textColor="@color/text_dim" android:textSize="14sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <TextView android:id="@+id/amountText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/gold" android:textSize="44sp" android:textStyle="bold"
+                android:gravity="center" android:layout_marginTop="6dp" />
         </LinearLayout>
+
+        <TextView android:id="@+id/metaText" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="@color/text_dim" android:textSize="12sp" android:gravity="center"
+            android:layout_gravity="center" android:layout_marginTop="12dp" />
+
+        <Button android:id="@+id/repeatButton" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔁 Repeat" android:backgroundTint="@color/panel" android:textColor="@color/text"
+            android:layout_gravity="center" android:layout_marginTop="14dp" />
     </LinearLayout>
 
     <TextView android:id="@+id/historyLabel" android:layout_width="match_parent" android:layout_height="wrap_content"

@@ -36,6 +36,8 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var todayCount: Int = 0
 
     private lateinit var statusChip: TextView
+    private lateinit var statusIcon: android.widget.ImageView
+    private lateinit var resultCard: View
     private lateinit var senderNameText: TextView
     private lateinit var amountText: TextView
     private lateinit var metaText: TextView
@@ -66,6 +68,8 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
 
         statusChip = findViewById(R.id.statusChip)
+        statusIcon = findViewById(R.id.statusIcon)
+        resultCard = findViewById(R.id.resultCard)
         senderNameText = findViewById(R.id.senderNameText)
         amountText = findViewById(R.id.amountText)
         metaText = findViewById(R.id.metaText)
@@ -230,11 +234,14 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         lastPayment = payment
         statusChip.text = if (lang == "am") "ክፍያ ደርሷል" else getString(R.string.payment_received)
 
+        resultCard.visibility = View.VISIBLE
+        statusIcon.setImageResource(R.drawable.ic_check_circle)
+        statusChip.setTextColor(resources.getColor(R.color.mint, theme))
         senderNameText.text = payment.senderName
         senderNameText.setTextColor(resources.getColor(R.color.text, theme))
 
         amountText.visibility = View.VISIBLE
-        amountText.text = "ETB ${payment.amount}"
+        amountText.text = "ETB " + String.format(java.util.Locale.US, "%,.2f", payment.amount)
 
         val metaParts = mutableListOf<String>()
         metaParts.add(if (payment.source == "cbe") "CBE" else "Telebirr")
@@ -262,7 +269,7 @@ class PaymentActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         for (item in history) {
             val row = TextView(this).apply {
-                text = "${item.senderName}   ·   ETB ${item.amount}${item.txnDate?.let { "   ·   $it" } ?: ""}"
+                text = "${item.senderName}   ·   ETB ${String.format(java.util.Locale.US, "%,.2f", item.amount)}${item.txnDate?.let { "   ·   $it" } ?: ""}"
                 setTextColor(resources.getColor(R.color.text_dim, theme))
                 textSize = 15f
                 setPadding(4, 14, 4, 14)
